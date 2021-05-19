@@ -1,7 +1,18 @@
 ﻿
 namespace CurencyConverter
 {
-    partial class Form1
+    /*
+     * This class should have: 
+     * -2 textfields 
+     * -2 dropdown menus with the list of the 5 currencyoptions in each
+     * -A go button
+     * -A graph
+     * 
+     * On go, it should call to: 
+     * -Converter and then display the amount returned
+     * -Graph to generate the graph
+     */
+    partial class GUI
     {
         /// <summary>
         /// Required designer variable.
