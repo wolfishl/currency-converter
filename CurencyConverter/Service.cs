@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RestSharp;
 
 namespace CurencyConverter
 {
@@ -15,14 +16,65 @@ namespace CurencyConverter
     class Service
     {
 
+        String CURRENCIES = "GBP,ILS,USD,LBP";
+
+        /*
+         * Takes a string of currencies and returns 
+         * a JSON response as a string with the current 
+         * rates of the currencies compared to EUR.
+         */
+        private String getRateResponse(String currencies)
+        {
+            RestClient client = new RestClient
+                        ("http://api.exchangeratesapi.io/v1/latest" +
+                         "?access_key=2d31e6a6c7561cfeadffbf7e7934bd87" +
+                         $"&symbols={currencies}");
+
+            RestRequest request = new RestRequest(Method.GET);
+            String response = (client.Execute(request)).Content;
+            return response;
+        }
+
+        /*
+         * Takes a day and a string of currencies and returns a 
+         * JSON respnse as a string with the historical rates of the
+         * currencies on that day compared to EUR.
+         */
+        private String getHistoryResponse(String day, String currencies)
+        {
+            RestClient client = new RestClient
+                        ($"http://api.exchangeratesapi.io/v1/{day}" +
+                         "?access_key=2d31e6a6c7561cfeadffbf7e7934bd87" +
+                         $"&symbols={currencies}");
+
+            RestRequest request = new RestRequest(Method.GET);
+            String response = (client.Execute(request)).Content;
+            Console.WriteLine(response);
+            return response;
+        }
+
+        /*
+         * Takes a currency and a JSON response as a string.
+         * Finds retuns the rate of that currency in the response.
+         */
+        private double getRate(String currency, String currencies)
+        {
+            String response = getRateResponse(currencies);
+            int digitsAfterSymbol = 5;
+            int precision = 10;
+            double rate = double.Parse(turnNumeric
+                        (response.Substring
+                        (response.IndexOf(currency) +
+                        digitsAfterSymbol, precision)));
+            return rate;
+        }
+
         /*
          * rate is returned as GBP/EUR
          */
         public double getGBP()
         {
-            //TODO write this code
-            double rate = 0.0;
-            return rate; 
+            return getRate("GBP", CURRENCIES);
         }
 
         /*
@@ -30,9 +82,7 @@ namespace CurencyConverter
          */
         public double getILS()
         {
-            //TODO write this code
-            double rate = 0.0;
-            return rate;
+            return getRate("ILS", CURRENCIES);
         }
 
         /*
@@ -40,9 +90,7 @@ namespace CurencyConverter
          */
         public double getUSD()
         {
-            //TODO write this code
-            double rate = 0.0;
-            return rate;
+            return getRate("USD", CURRENCIES);
         }
 
         /*
@@ -50,20 +98,59 @@ namespace CurencyConverter
          */
         public double getLBP()
         {
-            //TODO write this code
-            double rate = 0.0;
-            return rate;
+            return getRate("LBP", CURRENCIES);
         }
-
 
         /*
          * Takes a specific curency and returns a list of the daily rates of that currency for the past 30 days
          */
         public List<double> getHistory(String currency)
         {
-            //TODO write this code
             List<double> history = new List<double>();
+            int digitsAfterSymbol = 5;
+            int precision = 10;
+
+            for (int day = 0; day < 30; day++)
+            {
+                DateTime today = DateTime.Today.AddDays(-day);
+                String response = getHistoryResponse(today.ToString("yyyy-MM-dd"), CURRENCIES);
+                history.Add(double.Parse(turnNumeric(response.Substring
+                    (response.IndexOf(currency) + digitsAfterSymbol, precision))));
+            }
+
             return history;
+        }
+
+        /*
+         * Takes a currency and prints a list of the daily 
+         * rates of that currency for the past 30 days.
+         */
+        public void printHistory(String currency)
+        {
+            List<double> history = getHistory(currency);
+
+            for (int day = 0; day < history.Count; day++)
+            {
+                DateTime today = DateTime.Today.AddDays(-day);
+                Console.WriteLine(today.ToString("yyyy-MM-dd") + ": " + history[day]);
+            }
+        }
+
+        /*
+         * Ensures that all substrings of rates are completely
+         * numeric before trying to parse them as doubles.
+         */
+        private String turnNumeric(String str)
+        {
+            foreach (char c in str)
+            {
+                if (!c.Equals('.') && !char.IsNumber(c))
+                {
+                    str = str.Replace(c, '0');
+                }
+            }
+
+            return str;
         }
     }
 }
