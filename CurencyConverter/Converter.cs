@@ -14,9 +14,10 @@ namespace CurencyConverter
     class Converter
     {
         /*
-         * Starting currency should be one of the 3 letter codes
+         * Starting and Final currency should be one of the 3 letter codes
+         * 
          */
-        public double convert(double startingAmount, String startingCurrency)
+        public double convert(double startingAmount, String startingCurrency, String finalCurrency)
         {
             //TODO write this code
             double finalAmount = 0;
