@@ -14,7 +14,7 @@ namespace CurencyConverter
      */
     class Converter
     {
-        public double Convert(double startingAmount, string startingCurrency, string finalCurrency)
+        public static double Convert(double startingAmount, string startingCurrency, string finalCurrency)
         {
             double finalAmount;
             if (startingCurrency == finalCurrency)
@@ -51,7 +51,7 @@ namespace CurencyConverter
             return finalAmount;
         }
 
-        private double AnyToEuro(double startingAmount, String startingCurrency)
+        private static double AnyToEuro(double startingAmount, String startingCurrency)
         {
             double euroAmount;
             double rate;
@@ -80,25 +80,25 @@ namespace CurencyConverter
             return euroAmount;
         }
 
-        private double EuroToGBP(double amount)
+        private static double EuroToGBP(double amount)
         {
             double rate = Service.getGBP();
             return amount * rate;
         }
 
-        private double EuroToILS(double amount)
+        private static double EuroToILS(double amount)
         {
             double rate = Service.getILS();
             return amount * rate;
         }
 
-        private double EuroToUSD(double amount)
+        private static double EuroToUSD(double amount)
         {
             double rate = Service.getUSD();
             return amount * rate;
         }
 
-        private double EuroToLBP(double amount)
+        private static double EuroToLBP(double amount)
         {
             double rate = Service.getLBP();
             return amount * rate;

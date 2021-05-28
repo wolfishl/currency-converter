@@ -16,5 +16,15 @@ namespace CurencyConverter
         {
             InitializeComponent();
         }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            String startingAmountStr = tbAmount.Text;
+            double startingAmount = Double.Parse(startingAmountStr);
+            String startingCurrency = cbCurrency.Text;
+            String finalCurrency = cbCurrencyFinal.Text;
+           tbResult.Text = Converter.Convert(startingAmount, startingCurrency, finalCurrency).ToString();
+
+        }
     }
 }

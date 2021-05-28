@@ -48,7 +48,7 @@ namespace CurencyConverter
             this.lblResult = new System.Windows.Forms.Label();
             this.tbResult = new System.Windows.Forms.TextBox();
             this.cbCurrency = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbCurrencyFinal = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblAmount
@@ -76,6 +76,7 @@ namespace CurencyConverter
             this.btnConvert.TabIndex = 4;
             this.btnConvert.Text = "Convert";
             this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
             // lblResult
             // 
@@ -103,20 +104,21 @@ namespace CurencyConverter
             this.cbCurrency.TabIndex = 8;
             this.cbCurrency.Text = "Currency";
             // 
-            // comboBox1
+            // cbCurrencyFinal
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(263, 59);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 9;
+            this.cbCurrencyFinal.FormattingEnabled = true;
+            this.cbCurrencyFinal.Location = new System.Drawing.Point(263, 59);
+            this.cbCurrencyFinal.Name = "cbCurrencyFinal";
+            this.cbCurrencyFinal.Size = new System.Drawing.Size(121, 24);
+            this.cbCurrencyFinal.TabIndex = 9;
+            this.cbCurrencyFinal.Text = "Currency";
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 191);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbCurrencyFinal);
             this.Controls.Add(this.cbCurrency);
             this.Controls.Add(this.tbResult);
             this.Controls.Add(this.lblResult);
@@ -150,7 +152,7 @@ namespace CurencyConverter
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.TextBox tbResult;
         private System.Windows.Forms.ComboBox cbCurrency;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbCurrencyFinal;
     }
 }
 
