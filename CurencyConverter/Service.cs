@@ -16,14 +16,14 @@ namespace CurencyConverter
     class Service
     {
 
-        String CURRENCIES = "GBP,ILS,USD,LBP";
+        static String CURRENCIES = "GBP,ILS,USD,LBP";
 
         /*
          * Takes a string of currencies and returns 
          * a JSON response as a string with the current 
          * rates of the currencies compared to EUR.
          */
-        private String getRateResponse(String currencies)
+        private static String getRateResponse(String currencies)
         {
             RestClient client = new RestClient
                         ("http://api.exchangeratesapi.io/v1/latest" +
@@ -40,7 +40,7 @@ namespace CurencyConverter
          * JSON respnse as a string with the historical rates of the
          * currencies on that day compared to EUR.
          */
-        private String getHistoryResponse(String day, String currencies)
+        private static String getHistoryResponse(String day, String currencies)
         {
             RestClient client = new RestClient
                         ($"http://api.exchangeratesapi.io/v1/{day}" +
@@ -57,7 +57,7 @@ namespace CurencyConverter
          * Takes a currency and a JSON response as a string.
          * Finds retuns the rate of that currency in the response.
          */
-        private double getRate(String currency, String currencies)
+        private static double getRate(String currency, String currencies)
         {
             String response = getRateResponse(currencies);
             int digitsAfterSymbol = 5;
@@ -72,7 +72,7 @@ namespace CurencyConverter
         /*
          * rate is returned as GBP/EUR
          */
-        public double getGBP()
+        public static double getGBP()
         {
             return getRate("GBP", CURRENCIES);
         }
@@ -80,7 +80,7 @@ namespace CurencyConverter
         /*
          * rate is returned as ILS/EUR
          */
-        public double getILS()
+        public static double getILS()
         {
             return getRate("ILS", CURRENCIES);
         }
@@ -88,7 +88,7 @@ namespace CurencyConverter
         /*
          * rate is returned as USD/EUR
          */
-        public double getUSD()
+        public static double getUSD()
         {
             return getRate("USD", CURRENCIES);
         }
@@ -96,7 +96,7 @@ namespace CurencyConverter
         /*
          * rate is returned as LBP/EUR
          */
-        public double getLBP()
+        public static double getLBP()
         {
             return getRate("LBP", CURRENCIES);
         }
@@ -104,7 +104,7 @@ namespace CurencyConverter
         /*
          * Takes a specific curency and returns a list of the daily rates of that currency for the past 30 days
          */
-        public List<double> getHistory(String currency)
+        public static List<double> getHistory(String currency)
         {
             List<double> history = new List<double>();
             int digitsAfterSymbol = 5;
@@ -125,7 +125,7 @@ namespace CurencyConverter
          * Takes a currency and prints a list of the daily 
          * rates of that currency for the past 30 days.
          */
-        public void printHistory(String currency)
+        public static void printHistory(String currency)
         {
             List<double> history = getHistory(currency);
 
@@ -140,7 +140,7 @@ namespace CurencyConverter
          * Ensures that all substrings of rates are completely
          * numeric before trying to parse them as doubles.
          */
-        private String turnNumeric(String str)
+        private static String turnNumeric(String str)
         {
             foreach (char c in str)
             {

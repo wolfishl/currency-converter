@@ -1,0 +1,13 @@
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\obj\Debug\CurrencyConverter.csprojAssemblyReference.cache
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\obj\Debug\CurencyConverter.Properties.Resources.resources
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\obj\Debug\CurrencyConverter.csproj.GenerateResource.cache
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\obj\Debug\CurrencyConverter.csproj.CoreCompileInputs.cache
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\bin\Debug\CurencyConverter.exe.config
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\bin\Debug\CurencyConverter.exe
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\bin\Debug\CurencyConverter.pdb
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\bin\Debug\RestSharp.dll
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\bin\Debug\RestSharp.xml
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\obj\Debug\CurencyConverter.GUI.resources
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\obj\Debug\CurrencyConverter.csproj.CopyComplete
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\obj\Debug\CurencyConverter.exe
+C:\Users\lwolf\Documents\Touro\Spring 2021\OOP\Final Project\CurencyConverter\CurencyConverter\obj\Debug\CurencyConverter.pdb
