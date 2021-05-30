@@ -21,9 +21,14 @@ namespace CurencyConverter
         {
             String startingAmountStr = tbAmount.Text;
             double startingAmount = Double.Parse(startingAmountStr);
-            String startingCurrency = cbCurrency.Text;
-            String finalCurrency = cbCurrencyFinal.Text;
-           tbResult.Text = Converter.Convert(startingAmount, startingCurrency, finalCurrency).ToString();
+            String startingCurrency = cbStartCurrency.Text;
+            String finalCurrency = cbEndCurrency.Text;
+           tbResult.Text = String.Format("{0:0,0.00}", Converter.Convert(startingAmount, startingCurrency, finalCurrency));
+
+        }
+
+        private void cbStartCurrency_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
