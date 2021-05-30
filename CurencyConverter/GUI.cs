@@ -27,9 +27,6 @@ namespace CurencyConverter
 
         }
 
-        private void cbStartCurrency_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }

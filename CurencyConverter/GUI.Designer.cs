@@ -106,7 +106,6 @@ namespace CurencyConverter
             this.cbStartCurrency.Name = "cbStartCurrency";
             this.cbStartCurrency.Size = new System.Drawing.Size(138, 24);
             this.cbStartCurrency.TabIndex = 8;
-            this.cbStartCurrency.SelectedIndexChanged += new System.EventHandler(this.cbStartCurrency_SelectedIndexChanged);
             // 
             // cbEndCurrency
             // 
