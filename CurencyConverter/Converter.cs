@@ -17,12 +17,7 @@ namespace CurencyConverter
         public static double Convert(double startingAmount, string startingCurrency, string finalCurrency)
         {
             double finalAmount;
-            if (startingCurrency == finalCurrency)
-            {
-                finalAmount = startingAmount;
-            }
-            else
-            {
+
                 // convert starting currency to euro
                 double euroAmount = startingCurrency.Equals("EUR") ? startingAmount : AnyToEuro(startingAmount, startingCurrency);
                 //convert euro start amount to chosen currency
@@ -41,13 +36,13 @@ namespace CurencyConverter
                         finalAmount = EuroToLBP(euroAmount);
                         break;
                     case "EUR":
-                        finalAmount = startingAmount;
+                        finalAmount = euroAmount;
                         break;
                     default:
                         finalAmount = 0;
                         break;
                 }
-            }
+            
             return finalAmount;
         }
 

@@ -54,7 +54,7 @@ namespace CurencyConverter
         }
 
         /*
-         * Takes a currency and a JSON response as a string.
+         * Takes a currency and a string of currencies.
          * Finds retuns the rate of that currency in the response.
          */
         private static double getRate(String currency, String currencies)
