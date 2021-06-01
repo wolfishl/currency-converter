@@ -27,7 +27,7 @@ namespace CurencyConverter
         {
             RestClient client = new RestClient
                         ("http://api.exchangeratesapi.io/v1/latest" +
-                         "?access_key=6d903b0ffe71f9ea1811ebeb6d6d4a68" +
+                         "?access_key=0521bcf1bd70da95108d60d9716f0ae7" +
                          $"&symbols={currencies}");
 
             RestRequest request = new RestRequest(Method.GET);
@@ -44,7 +44,7 @@ namespace CurencyConverter
         {
             RestClient client = new RestClient
                         ($"http://api.exchangeratesapi.io/v1/{day}" +
-                         "?access_key=6d903b0ffe71f9ea1811ebeb6d6d4a68" +
+                         "?access_key=0521bcf1bd70da95108d60d9716f0ae7" +
                          $"&symbols={currencies}");
 
             RestRequest request = new RestRequest(Method.GET);

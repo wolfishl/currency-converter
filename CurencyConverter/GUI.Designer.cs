@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 namespace CurencyConverter
 {
@@ -42,6 +43,7 @@ namespace CurencyConverter
         /// </summary>
         private void InitializeComponent()
         {
+            
             this.lblAmount = new System.Windows.Forms.Label();
             this.btnConvert = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
@@ -52,7 +54,7 @@ namespace CurencyConverter
             this.lblStartCurr = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.tbAmount = new System.Windows.Forms.TextBox();
-            this.lblError2 = new System.Windows.Forms.Label();
+            this.lblError2 = new System.Windows.Forms.Label();            
             this.SuspendLayout();
             // 
             // lblAmount
@@ -67,7 +69,7 @@ namespace CurencyConverter
             // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(227, 134);
+            this.btnConvert.Location = new System.Drawing.Point(622, 56);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(92, 34);
             this.btnConvert.TabIndex = 4;
@@ -168,12 +170,13 @@ namespace CurencyConverter
             this.lblError2.TabIndex = 13;
             this.lblError2.Text = "     ";
             this.lblError2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+           
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(706, 191);
+            this.ClientSize = new System.Drawing.Size(781, 470);
             this.Controls.Add(this.lblError2);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.cbStartCurrency);
@@ -187,7 +190,7 @@ namespace CurencyConverter
             this.Controls.Add(this.lblAmount);
             this.Name = "GUI";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+           // ((System.ComponentModel.ISupportInitialize)(this.chartCurrency)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,10 +201,6 @@ namespace CurencyConverter
             throw new NotImplementedException();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
 
         #endregion
@@ -217,6 +216,7 @@ namespace CurencyConverter
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.TextBox tbAmount;
         private System.Windows.Forms.Label lblError2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartCurrency;
     }
 }
 
