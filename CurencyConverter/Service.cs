@@ -17,6 +17,7 @@ namespace CurencyConverter
     {
 
         static String CURRENCIES = "GBP,ILS,USD,LBP";
+        static String API_KEY = "0521bcf1bd70da95108d60d9716f0ae7"; //If the GUI returns NaN, replace this
 
         /*
          * Takes a string of currencies and returns 
@@ -27,7 +28,7 @@ namespace CurencyConverter
         {
             RestClient client = new RestClient
                         ("http://api.exchangeratesapi.io/v1/latest" +
-                         "?access_key=0521bcf1bd70da95108d60d9716f0ae7" +
+                         $"?access_key={API_KEY}" +
                          $"&symbols={currencies}");
 
             RestRequest request = new RestRequest(Method.GET);
@@ -44,7 +45,7 @@ namespace CurencyConverter
         {
             RestClient client = new RestClient
                         ($"http://api.exchangeratesapi.io/v1/{day}" +
-                         "?access_key=0521bcf1bd70da95108d60d9716f0ae7" +
+                         $"?access_key={API_KEY}" +
                          $"&symbols={currencies}");
 
             RestRequest request = new RestRequest(Method.GET);
